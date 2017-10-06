@@ -27,6 +27,8 @@ class OrderedList:
         self.head = None
         self.tail = None
     #Implemented by Matthew Lewis
+    #Converts Ordered List to string
+    #Returns string of sequence of items in the Ordered List
     def __repr__(self):
         if self.head == None:
             return None
