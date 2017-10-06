@@ -21,11 +21,13 @@ class Node:
 #Stores data in an ordered linked list
 #Head contains node with lowest value item
 #Tail contains node with highest value item
+#Num_of_items keeps track of the number of items in the Ordered List
 class OrderedList:
-    #
+    #Initializes OrderedList according to spec
     def __init__(self):
         self.head = None
         self.tail = None
+        self.num_of_items = 0
     #Implemented by Matthew Lewis
     #Converts Ordered List to string
     #Returns string of sequence of items in the Ordered List
@@ -37,15 +39,23 @@ class OrderedList:
             while self.head.next != None:
                 strReturn += ", " + str(self.head)
     #
-    def add(self,item):
+    def add(self, item):
         pass
     #Implemented by Matthew Lewis
     def remove(self, item):
-        pass
+        #Cannot remove from an empty Ordered List
+        if self.head == None:
+            raise IndexError()
+        else:
+            temp = self.head
+            if temp.data == item:
+                self.head = self.head.next
+            else:
+                while temp.next != None:
     #
     def search_forward(self, item):
         pass
-    #Implemented by Matthew Lewis
+    #To be implemented by Matthew Lewis
     def search_backward(self, item):
         pass
     #Implemented by Matthew Lewis
