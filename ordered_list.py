@@ -11,3 +11,40 @@ class Node:
 		self.next = next
 	def __repr__(self):
 		return "Data: " + self.data
+
+#Implements ADT Ordered List
+#Stores data in an ordered linked list
+class OrderedList:
+    #
+    def __init__(self):
+        pass
+    #
+    def __repr__(self):
+        pass
+    #
+    def add(self,item):
+        pass
+    #
+    def remove(self, item):
+        pass
+    #
+    def search_forward(self, item):
+        pass
+    #
+    def search_backward(self, item):
+        pass
+    #
+    def is_empty(self):
+        pass
+    #
+    def size(self):
+        pass
+    #
+    def index(self, item):
+        pass
+    #
+    def pop(self):
+        pass
+    #
+    def pop(pos):
+        pass
