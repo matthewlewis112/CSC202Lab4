@@ -60,13 +60,31 @@ class OrderedList:
                         temp.next.prev = temp.prev
                         temp.prev = None
                         temp.next = None
-    
+                    temp = temp.next
+
     #
     def search_forward(self, item):
         pass
-    #To be implemented by Matthew Lewis
+    #Implemented by Matthew Lewis
+    #Returns index of item
     def search_backward(self, item):
-        pass
+        #Cannot remove from an empty Ordered List
+        if self.num_of_items == 0:
+            return None
+        else:
+            index = self.num_of_items - 1
+            temp = self.tail
+            if temp.data == item:
+                self.tail = self.tail.prev
+                index -= 1
+            else:
+                while temp != None:
+                    if temp.data == item:
+                        return index
+                    temp = temp.prev
+                    index -= 1
+                return None
+                
     #Implemented by Matthew Lewis
     def is_empty(self):
         pass
