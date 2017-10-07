@@ -42,6 +42,7 @@ class OrderedList:
     def add(self, item):
         pass
     #Implemented by Matthew Lewis
+    #Removes the given item from the Order List
     def remove(self, item):
         #Cannot remove from an empty Ordered List
         if self.head == None:
@@ -51,7 +52,15 @@ class OrderedList:
             if temp.data == item:
                 self.head = self.head.next
             else:
-                while temp.next != None:
+                while temp != None:
+                    if temp.data == item:
+                        #Connect previous node to next node
+                        temp.prev.next = temp.next
+                        #Connect next node to previous node
+                        temp.next.prev = temp.prev
+                        temp.prev = None
+                        temp.next = None
+    
     #
     def search_forward(self, item):
         pass
