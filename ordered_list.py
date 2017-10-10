@@ -70,6 +70,31 @@ class OrderedList:
     def search_backward(self, item):
         #Cannot remove from an empty Ordered List
         if self.num_of_items == 0:
+            return False
+        else:
+            index = self.num_of_items - 1
+            temp = self.tail
+            if temp.data == item:
+                self.tail = self.tail.prev
+                index -= 1
+            else:
+                while temp != None:
+                    if temp.data == item:
+                        return True
+                    temp = temp.prev
+                    index -= 1
+                return False
+
+    #Implemented by Matthew Lewis
+    def is_empty(self):
+        return self.num_of_items == 0
+    #Implemented by Matthew Lewis
+    def size(self):
+        return self.num_of_items
+    #Implemented by Matthew Lewis
+    def index(self, item):
+        #Cannot remove from an empty Ordered List
+        if self.num_of_items == 0:
             return None
         else:
             index = self.num_of_items - 1
@@ -84,16 +109,6 @@ class OrderedList:
                     temp = temp.prev
                     index -= 1
                 return None
-                
-    #Implemented by Matthew Lewis
-    def is_empty(self):
-        pass
-    #Implemented by Matthew Lewis
-    def size(self):
-        pass
-    #Implemented by Matthew Lewis
-    def index(self, item):
-        pass
     #
     def pop(self):
         pass
