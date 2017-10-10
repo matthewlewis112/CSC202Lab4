@@ -73,14 +73,15 @@ class OrderedList:
     def search_backward(self, item):
         #Cannot remove from an empty Ordered List
         if self.num_of_items == 0:
-            return False
+            return Flase
         else:
             index = self.num_of_items - 1
             temp = self.tail
             if temp.data == item:
-                self.tail = self.tail.prev
-                index -= 1
+                return index
             else:
+				temp = temp.next
+				index -=1
                 while temp != None:
                     if temp.data == item:
                         return True
@@ -103,9 +104,10 @@ class OrderedList:
             index = self.num_of_items - 1
             temp = self.tail
             if temp.data == item:
-                self.tail = self.tail.prev
-                index -= 1
+                return index
             else:
+				temp = temp.next
+				index -=1
                 while temp != None:
                     if temp.data == item:
                         return index
@@ -116,5 +118,5 @@ class OrderedList:
     def pop(self):
         pass
     #
-    def pop(pos):
+    def pop(self, pos):
         pass
