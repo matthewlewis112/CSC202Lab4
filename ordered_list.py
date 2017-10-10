@@ -35,9 +35,12 @@ class OrderedList:
         if self.head == None:
             return None
         else:
-            strReturn = str(self.head)
-            while self.head.next != None:
-                strReturn += ", " + str(self.head)
+			temp = self.head
+            strReturn = str(temp)
+			temp = temp.next
+            while temp != None:
+                strReturn += ", " + str(temp)
+			return strReturn
     #
     def add(self, item):
         pass
