@@ -25,8 +25,8 @@ class Node:
 class OrderedList:
     #Initializes OrderedList according to spec
     def __init__(self):
-        self.head = None
-        self.tail = None
+        self.head = Node()
+        self.tail = Node()
         self.num_of_items = 0
     #Implemented by Matthew Lewis
     #Converts Ordered List to string
@@ -38,17 +38,20 @@ class OrderedList:
             temp = self.head
         strReturn = str(temp)
         temp = temp.next
-        while temp != None:
+        for i in range(self.num_of_items -1):
          strReturn += ", " + str(temp)
         return strReturn
 
-# Implemented by Yash Satyavarpu
-# Adds the given item to the Ordered List
+	# Implemented by Yash Satyavarpu
+	# Adds the given item to the Ordered List
     def add(self, item):
         current = self.head
         previous = None
         stop = False
 
+        if self.is_empty():
+            self.head.data = item
+            self.num_of_items += 1
         while current is not None and not stop:
             # Searches through list to find where item belongs.
             if current.data > item:
@@ -71,32 +74,15 @@ class OrderedList:
     #Implemented by Matthew Lewis
     #Removes the given item from the Order List
     def remove(self, item):
-        #Cannot remove from an empty Ordered List
-        if self.head == None:
-            raise IndexError()
-        else:
-            temp = self.head
-            if temp.data == item:
-                self.head = self.head.next
-                self.num_of_items -= 1
-                return item
-            else:
-                while temp != None:
-                    if temp.data == item:
-                        #Connect previous node to next node
-                        rValue = temp.data
-                        temp.prev.next = temp.next
-                        #Connect next node to previous node
-                        temp.next.prev = temp.prev
-                        temp.prev = None
-                        temp.next = None
-                        self.num_of_items -= 1
-                        return rValue
-                    temp = temp.next
+        if self.is_empty():
             return -1
+        else:
+            index = self.index(item)
+			
+            return index
 
-# Implemented by Yash Satyavarpu
-# Returns True if item is in list, False if not
+	# Implemented by Yash Satyavarpu
+	# Returns True if item is in list, False if not
     def search_forward(self, item):
         # Cannot search an empty Ordered List
         if self.num_of_items == 0:
@@ -113,7 +99,6 @@ class OrderedList:
                         stop = True
                     else:
                         current = current.next
-
             return found
 
     #Implemented by Matthew Lewis
@@ -161,15 +146,14 @@ class OrderedList:
                         return index
                     temp = temp.prev
                     index -= 1
-                return None
+                return -1
 
-#Implemented by Yash Satyavarpu
-#Removes and returns the last item in the list.
+	#Implemented by Yash Satyavarpu
+	#Removes and returns the last item in the list.
     def pop(self, pos = None):
         if pos is None:
-            ans = self.tail.data
-            remove(self.tail.data)
-            return ans
+        	ans = self.remove(self.tail.data)
+        	return ans
         else:
             if pos > self.size()/2:
                 if self.search_backward(list[pos]) is True:
