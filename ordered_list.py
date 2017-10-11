@@ -78,7 +78,19 @@ class OrderedList:
             return -1
         else:
             index = self.index(item)
-			
+			if index is -1:
+				return -1
+			else:
+				if index is 0:
+					self.head = Node()
+					self.tail = Node()
+					self.num_of_items = 0
+				else:
+					for i in range(index-1):
+						temp1 = self.head.next
+					newNext = temp.next
+					temp.prev.next = newNext
+					self.num_of_items -= 1
             return index
 
 	# Implemented by Yash Satyavarpu
