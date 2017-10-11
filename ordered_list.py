@@ -91,7 +91,7 @@ class OrderedList:
                         temp.prev = None
                         temp.next = None
                         self.num_of_items -= 1
-                    return rValue
+                        return rValue
                     temp = temp.next
             return -1
 
