@@ -117,7 +117,7 @@ class OrderedList:
     def search_backward(self, item):
         #Cannot remove from an empty Ordered List
         if self.num_of_items == 0:
-            return Flase
+            return False
         else:
             index = self.num_of_items - 1
             temp = self.tail
@@ -161,25 +161,25 @@ class OrderedList:
 
 #Implemented by Yash Satyavarpu
 #Removes and returns the last item in the list.
-    def pop(self):
-        ans = self.tail.data
-        temp = self.tail
-        temp.prev.next = None
-        self.num_of_items = self.num_of_items - 1
-        return ans
-#Implemented by Yash Satyavarpu
-    def pop(self, pos):
-        if pos > self.size()/2:
-            if self.search_backward(list[pos]) is True:
-                self.num_of_items = self.num_of_items - 1
-                return self.remove(list[pos])
-            else:
-                return -1
-        elif pos < self.size()/2:
-            if self.search_forward(list[pos]) is True:
-                self.num_of_items = self.num_of_items - 1
-                return self.remove(list[pos])
-            else:
-                return -1
+    def pop(self, pos = None):
+        if pos is None:
+            ans = self.tail.data
+            remove(self.tail.data)
+            return ans
         else:
-            return -1
+            if pos > self.size()/2:
+                if self.search_backward(list[pos]) is True:
+                    ans = list[pos]
+                    self.remove(list[pos])
+                    return ans
+                else:
+                    return -1
+            elif pos < self.size()/2:
+                if self.search_forward(list[pos]) is True:
+                    ans = list[pos]
+                    self.remove(list[pos])
+                    return ans
+                else:
+                    return -1
+            else:
+                return -1
