@@ -78,8 +78,8 @@ class OrderedList:
             temp = self.head
             if temp.data == item:
                 self.head = self.head.next
-				self.num_of_items -= 1
-				return item
+                self.num_of_items -= 1
+                return item
             else:
                 while temp != None:
                     if temp.data == item:
@@ -90,10 +90,10 @@ class OrderedList:
                         temp.next.prev = temp.prev
                         temp.prev = None
                         temp.next = None
-						self.num_of_items -= 1
-                        return rValue
+                        self.num_of_items -= 1
+                    return rValue
                     temp = temp.next
-			return -1
+            return -1
 
 # Implemented by Yash Satyavarpu
 # Returns True if item is in list, False if not

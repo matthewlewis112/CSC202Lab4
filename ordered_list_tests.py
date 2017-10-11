@@ -28,6 +28,7 @@ class test_Ordered_List(unittest.TestCase):
         self.assertEqual(str(oList), "2, 5")
         self.assertEqual(oList.remove(2), 0)
         self.assertEqual(oList.remove(20), None)
+
     def test_search_forward(self):
         oList = OrderedList()
         oList.add(1)
@@ -41,6 +42,7 @@ class test_Ordered_List(unittest.TestCase):
         self.assertTrue(oList.search_forward(4))
         self.assertTrue(oList.search_forward(5))
         self.assertFalse(oList.search_forward(12))
+
     def test_search_backward(self):
         oList = OrderedList()
         oList.add(1)
