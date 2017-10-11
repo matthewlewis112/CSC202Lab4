@@ -10,12 +10,12 @@
 #Prev is the value of the previous node
 
 class Node:
-	def __init__(self, data = None, prev = None, next = None):
-		self.data = data
-		self.prev = prev
-		self.next = next
-	def __repr__(self):
-		return str(self.data)
+    def __init__(self, data = None, prev = None, next = None):
+        self.data = data
+        self.prev = prev
+        self.next = next
+    def __repr__(self):
+        return str(self.data)
 
 #Implements ADT Ordered List
 #Stores data in an ordered linked list
@@ -79,16 +79,16 @@ class OrderedList:
             if temp.data == item:
                 self.head = self.head.next
             else:
-				while temp != None:
-					if temp.data == item:
-						#Connect previous node to next node
-						rValue = temp.data
+                while temp != None:
+                    if temp.data == item:
+                        #Connect previous node to next node
+                        rValue = temp.data
                         temp.prev.next = temp.next
                         #Connect next node to previous node
                         temp.next.prev = temp.prev
                         temp.prev = None
                         temp.next = None
-						return rValue
+                        return rValue
                     temp = temp.next
 
 # Implemented by Yash Satyavarpu
@@ -124,8 +124,8 @@ class OrderedList:
             if temp.data == item:
                 return True
             else:
-				temp = temp.next
-				index -=1
+                temp = temp.next
+                index -=1
                 while temp != None:
                     if temp.data == item:
                         return True
@@ -151,21 +151,16 @@ class OrderedList:
                 return index
             else:
                 temp = temp.next
-				index -=1
+                index -=1
                 while temp != None:
                     if temp.data == item:
                         return index
                     temp = temp.prev
                     index -= 1
-<<<<<<< HEAD
                 return None
 
 #Implemented by Yash Satyavarpu
 #Removes and returns the last item in the list.
-=======
-                return -1
-    #
->>>>>>> 63323694df01f0ae01110777914749728316ebfb
     def pop(self):
         ans = self.tail.data
         temp = self.tail
