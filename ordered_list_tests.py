@@ -29,7 +29,7 @@ class test_Ordered_List(unittest.TestCase):
         oList.remove(35)
         self.assertEqual(str(oList), "2, 5")
         self.assertEqual(oList.remove(2), 0)
-        self.assertEqual(oList.remove(20), None)
+        self.assertEqual(oList.remove(20), -1)
 
     def test_is_empty(self):
         oList = OrderedList()
@@ -46,7 +46,7 @@ class test_Ordered_List(unittest.TestCase):
 
     def test_index(self):
         oList = OrderedList()
-        self.assertEqual(oList.index(12), None)
+        self.assertEqual(oList.index(12), -1)
         oList.add(12)
         self.assertEqual(oList.index(12), 0)
 
@@ -67,4 +67,3 @@ class test_Ordered_List(unittest.TestCase):
 # Run the unit tests.
 if (__name__ == '__main__'):
     unittest.main()
-
