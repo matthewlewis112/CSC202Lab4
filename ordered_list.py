@@ -57,19 +57,21 @@ class OrderedList:
             else:
                 while temp != None:
                     if temp.data == item:
+						rValue = temp.data
                         #Connect previous node to next node
                         temp.prev.next = temp.next
                         #Connect next node to previous node
                         temp.next.prev = temp.prev
                         temp.prev = None
                         temp.next = None
+						return rValue
                     temp = temp.next
 
     #
     def search_forward(self, item):
         pass
     #Implemented by Matthew Lewis
-    #Returns index of item
+    #Returns true if in list
     def search_backward(self, item):
         #Cannot remove from an empty Ordered List
         if self.num_of_items == 0:
@@ -78,7 +80,7 @@ class OrderedList:
             index = self.num_of_items - 1
             temp = self.tail
             if temp.data == item:
-                return index
+                return True
             else:
 				temp = temp.next
 				index -=1
@@ -99,7 +101,7 @@ class OrderedList:
     def index(self, item):
         #Cannot remove from an empty Ordered List
         if self.num_of_items == 0:
-            return None
+            return -1
         else:
             index = self.num_of_items - 1
             temp = self.tail
@@ -113,7 +115,7 @@ class OrderedList:
                         return index
                     temp = temp.prev
                     index -= 1
-                return None
+                return -1
     #
     def pop(self):
         pass
