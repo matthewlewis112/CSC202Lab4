@@ -97,7 +97,7 @@ class OrderedList:
 					self.tail = self.tail.prev
 					self.num_of_items -= 1
 				else:
-						temp = self.head
+					temp = self.head
 					for i in range(index-1):
 						temp = temp.next
 					newNext = temp.next
@@ -157,6 +157,8 @@ class OrderedList:
 		#Cannot remove from an empty Ordered List
 		if self.num_of_items == 0:
 			return -1
+		elif self.head.data == item:
+			return 0
 		else:
 			index = 0
 			current = self.head
