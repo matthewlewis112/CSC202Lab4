@@ -97,8 +97,9 @@ class OrderedList:
 					self.tail = self.tail.prev
 					self.num_of_items -= 1
 				else:
+						temp = self.head
 					for i in range(index-1):
-						temp = self.head.next
+						temp = temp.next
 					newNext = temp.next
 					temp.prev.next = newNext
 					self.num_of_items -= 1
@@ -166,7 +167,9 @@ class OrderedList:
 				if current.data == item:
 					return index
 				else:
-					if current.data > item:
+					if current.data == None or current is None:
+						return -1
+					elif current.data > item:
 						stop = True
 					else:
 						current = current.next
