@@ -56,7 +56,7 @@ class OrderedList:
         else:
             temp = self.head
         strReturn = str(temp)
-        for i in range(self.num_of_items):
+        for i in range(self.num_of_items-1):
             strReturn += ", " + str(temp.next)
             temp = temp.next
         return strReturn
@@ -90,6 +90,7 @@ class OrderedList:
         elif item > self.tail.data:
             self.tail.next = Node(data = item, prev = self.tail)
             self.tail = self.tail.next
+            self.num_of_items += 1
         else:
             # Places item where it belongs. Inserts temp and updates connections.
             temp.next = current
@@ -215,9 +216,13 @@ class OrderedList:
                 return -1
             else:
                 if index is 0:
-                    self.head = Node()
-                    self.tail = Node()
-                    self.num_of_items = 0
+                    if self.num_of_items == 1:
+                        self.head = Node()
+                        self.tail = Node()
+                        self.num_of_items = 0
+                    else:
+                        self.head = self.head.next
+                        self.num_of_items -= 1
                 elif index is 1:
                     self.head.next = Node()
                     self.tail = self.head
@@ -313,21 +318,20 @@ class OrderedList:
             if pos is None:
                 ans = self.tail.data
                 self.remove(self.tail.data)
+            elif pos > self.size():
+                return -1
             else:
                 if pos > self.size()/2:
                     if self.search_backward(list[pos]) is True:
-                        ans = list[pos]
-                        self.remove(list[pos])
-                        return ans
-                    else:
-                        return -1
+                        temp = self.head
+                        for i in range(pos):
+                            temp = temp.next
+                        ans = temp.data
+                        self.remove(temp.data)
                 elif pos < self.size()/2:
-                    if self.search_forward(list[pos]) is True:
-                        ans = list[pos]
-                        self.remove(list[pos])
-                        return ans
-                    else:
-                        return -1
-                else:
-                    return -1
+                   temp = self.head
+                   for i in range(pos):
+                       temp = temp.next
+                   ans = temp.data
+                   self.remove(temp.data)
             return ans
