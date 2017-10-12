@@ -58,10 +58,9 @@ class test_Ordered_List(unittest.TestCase):
         oList.add(5)
         self.assertEqual(oList.pop(), 35)
         oList.pop()
-        self.assertEqual(str(oList), "2, 5, 12")
+        self.assertEqual(str(oList), "2, 5")
         self.assertEqual(oList.pop(0), 2)
-        oList.pop(0)
-        self.assertEqual(str(oList), "5, 12")
+        self.assertEqual(str(oList), "5")
 
 
 # Run the unit tests.

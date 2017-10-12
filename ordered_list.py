@@ -37,11 +37,11 @@ class OrderedList:
         else:
             temp = self.head
         strReturn = str(temp)
-        for i in range(self.num_of_items -1):
+        for i in range(self.num_of_items):
             strReturn += ", " + str(temp.next)
             temp = temp.next
         return strReturn
-    
+
     # Implemented by Yash Satyavarpu
     # Adds the given item to the Ordered List
     # Added return None to end funtion earlier
@@ -70,8 +70,8 @@ class OrderedList:
             self.head = temp
             self.num_of_items += 1
         elif item > self.tail.data:
-            current.next = temp
-            previous.next = current
+            self.tail.next = Node(data = item, prev = self.tail)
+            self.tail = self.tail.next
         else:
             # Places item where it belongs. Inserts temp and updates connections.
             temp.next = current
@@ -105,10 +105,10 @@ class OrderedList:
                     for i in range(index-1):
                         temp = temp.next
                     newNext = temp.next
-                    temp.prev.next = newNext
+                    temp = newNext
                     self.num_of_items -= 1
             return index
-    
+
     # Implemented by Yash Satyavarpu
     # Returns True if item is in list, False if not
     def search_forward(self, item):
@@ -128,7 +128,7 @@ class OrderedList:
                     else:
                         current = current.next
             return found
-    
+
     #Implemented by Matthew Lewis
     #Returns true if in list
     def search_backward(self, item):
@@ -149,7 +149,7 @@ class OrderedList:
                     temp = temp.prev
                     index -= 1
                 return False
-    
+
     #Implemented by Matthew Lewis
     def is_empty(self):
         return self.num_of_items == 0
@@ -180,7 +180,7 @@ class OrderedList:
                     else:
                         current = current.next
             return -1
-    
+
     #Implemented by Yash Satyavarpu
     #Removes and returns the last item in the list.
     def pop(self, pos = None):
