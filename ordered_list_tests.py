@@ -56,7 +56,7 @@ class test_Ordered_List(unittest.TestCase):
         oList.add(2)
         oList.add(35)
         oList.add(5)
-        self.assertEqual(oList.pop(), 35 )
+        self.assertEqual(oList.pop(), 35)
         oList.pop()
         self.assertEqual(str(oList), "2, 5, 12")
         self.assertEqual(oList.pop(0), 2)

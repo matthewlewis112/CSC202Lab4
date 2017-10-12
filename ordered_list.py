@@ -44,6 +44,7 @@ class OrderedList:
 
 	# Implemented by Yash Satyavarpu
 	# Adds the given item to the Ordered List
+	# Added return None to end funtion earlier
 	def add(self, item):
 		current = self.head
 		previous = None
@@ -52,6 +53,7 @@ class OrderedList:
 		if self.is_empty():
 			self.head.data = item
 			self.num_of_items += 1
+			return None
 		while current is not None and not stop:
 			# Searches through list to find where item belongs.
 			if current.data > item:
@@ -66,11 +68,13 @@ class OrderedList:
 			temp.next = self.head
 			self.head = temp
 			self.num_of_items += 1
+			return None
 		else:
 			# Places item where it belongs. Inserts temp and updates connections.
 			temp.next = current
 			previous.next = temp
 			self.num_of_items += 1
+			return None
 	#Implemented by Matthew Lewis
 	#Removes the given item from the Order List
 	def remove(self, item):
@@ -153,19 +157,20 @@ class OrderedList:
 		if self.num_of_items == 0:
 			return -1
 		else:
-			index = self.num_of_items - 1
-			temp = self.tail
-			if temp.data == item:
-				return index
-			else:
-				temp = temp.next
-				index -=1
-				while temp != None:
-					if temp.data == item:
-						return index
-					temp = temp.prev
-					index -= 1
-				return -1
+			index = 0
+			current = self.head
+			found = False
+			stop = False
+			while current != None and not found and not stop:
+				index += 1
+				if current.data == item:
+					return index
+				else:
+					if current.data > item:
+						stop = True
+					else:
+						current = current.next
+			return -1
 
 	#Implemented by Yash Satyavarpu
 	#Removes and returns the last item in the list.
