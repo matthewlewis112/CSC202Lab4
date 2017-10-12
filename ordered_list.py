@@ -23,7 +23,6 @@ class Node:
 #Tail contains node with highest value item
 #Num_of_items keeps track of the number of items in the Ordered List
 class OrderedList:
-<<<<<<< HEAD
 	#Initializes OrderedList according to spec
 	def __init__(self):
 		self.head = Node()
@@ -42,7 +41,7 @@ class OrderedList:
 			strReturn += ", " + str(temp.next)
 			temp = temp.next
 		return strReturn
-=======
+
     #Initializes OrderedList according to spec
     def __init__(self):
         self.head = Node()
@@ -61,8 +60,6 @@ class OrderedList:
             strReturn += ", " + str(temp.next)
             temp = temp.next
         return strReturn
->>>>>>> f011bebc4c3c2aaef2940bfb03e910fb5ea344e8
-
     # Implemented by Yash Satyavarpu
     # Adds the given item to the Ordered List
     # Added return None to end funtion earlier
